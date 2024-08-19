@@ -10,7 +10,7 @@ This repository contains a collection of Python scripts designed to automate var
   - [Get Meraki Organization and Network IDs](#get-meraki-organization-and-network-ids)
   - [Get Network Devices](#get-network-devices)
   - [Meraki MQTT Camera Broker Reset](#meraki-mqtt-camera-broker-reset)
-- [Usage](#usage)
+- [Example Usage](#Example Usage: Meraki MQTT Camera Broker Reset)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -58,10 +58,10 @@ This repository aims to streamline common operations within the Meraki Dashboard
 - **Description:** Automates the process of updating the MQTT broker settings for a list of Meraki cameras. It ensures all specified cameras have the correct broker configuration and provides a summary of the updates.
 - **Usage:** Customize the script with your list of camera MAC addresses and run it to perform the updates.
 
-## Example Usage: Meraki MQTT Camera Broker Reset
+#### Example Usage: Meraki MQTT Camera Broker Reset
 The script automates the entire process, updating the MQTT broker settings for the specified cameras and providing a summary of the results.
 
-#### Pre-requisites:
+## Pre-requisites:
 
 Before running the script, ensure you have the following information:
 
