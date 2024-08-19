@@ -9,11 +9,11 @@ API_KEY = 'your api key'
 dashboard = meraki.DashboardAPI(API_KEY)
 
 # Define your organization and network IDs
-organization_id = '1202153'
-network_id = 'L_833165931063549202'
+organization_id = '1202153' # ltu
+network_id = 'L_833165931063549202' # dih jenny graves level2
 
 # Define the Camera Sense MQTT broker ID
-mqtt_broker_id = '833165931063541914'
+mqtt_broker_id = '833165931063541914' # andrew-test
 
 # List of MAC addresses for cameras that should be updated
 mac_addresses_to_update = [
