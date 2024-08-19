@@ -2,7 +2,7 @@ import meraki
 from datetime import datetime
 
 # Your Meraki API key
-API_KEY = 'c974a5739df9626a4dc8e5d1ea5eabdab9ced3e3'
+API_KEY = 'your_api_key_here'
 
 # Initialize the Meraki Dashboard API client
 dashboard = meraki.DashboardAPI(API_KEY)
