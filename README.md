@@ -11,8 +11,6 @@ This repository contains a collection of Python scripts designed to automate var
   - [Get Network Devices](#get-network-devices)
   - [Meraki MQTT Camera Broker Reset](#meraki-mqtt-camera-broker-reset)
 - [Example Usage](#example-usage-meraki-mqtt-camera-broker-reset)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 This repository aims to streamline common operations within the Meraki Dashboard, including:
