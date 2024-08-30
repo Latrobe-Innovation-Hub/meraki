@@ -42,11 +42,11 @@ The service subscribes to specific MQTT topics associated with various Meraki ca
    - For each valid message that meets predefined criteria (e.g., containing two or more detected objects), the service triggers a request to the Meraki API to capture a snapshot from the camera at the corresponding timestamp.
 
 4. **Data Storage:**
-   - The captured snapshots are saved locally in a structured directory on NFS storage, with filenames including the camera name and timestamp for easy referencing.
+   - The captured snapshots are saved locally in a structured directory on the Digital Innovation Hub's NFS file storage share, which is hosted on the DIH TrueNAS cloud server located in the COMMS room rack. Filenames include the camera name and timestamp for easy referencing.
    - The service also generates and saves annotation files in multiple formats:
-     - **YOLO Format:** Text files containing normalized object coordinates and class labels.
-     - **COCO Format:** JSON files formatted for use with the COCO dataset standard, including image metadata and bounding box annotations.
-     - **Pascal VOC Format:** XML files formatted for use with the Pascal VOC dataset standard, including bounding box coordinates and class names.
+     - **YOLO Format:** Text files containing normalized object coordinates and class labels, which are ideal for training YOLO models commonly used in object detection.
+     - **COCO Format:** JSON files formatted for use with the COCO dataset standard, including image metadata and bounding box annotations, widely used for model benchmarking and training in the computer vision community.
+     - **Pascal VOC Format:** XML files formatted for use with the Pascal VOC dataset standard, including bounding box coordinates and class names, suitable for image classification and object detection tasks.
 
 5. **Time Interval Management:**
    - To avoid redundant data storage, the service enforces a configurable interval between stored messages for each camera. This ensures that only distinct or significant detections are recorded, optimizing storage and processing efficiency.
