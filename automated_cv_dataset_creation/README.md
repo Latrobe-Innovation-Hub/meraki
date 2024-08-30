@@ -60,36 +60,49 @@ This automation allows for the rapid iteration and improvement of models, as new
 
 Overall, the `mqtt_to_dataset` service provides a scalable, automated solution for dataset generation, supporting ongoing machine learning initiatives and enhancing the ability to develop, train, and deploy advanced computer vision models.
 
+Here's the updated setup and usage instructions with the NFS setup included:
+
 #### **Setup and Usage Instructions:**
 
-1. **Create the Service File:**
-   - Save the above content in a file named `mqtt_to_dataset.service` inside the `/etc/systemd/system/` directory.
+1. **Configure NFS Mount:**
+   - Ensure that the NFS share from the Digital Innovation Hub's TrueNAS cloud server is set up correctly in your system's `/etc/fstab` file to mount automatically at boot. Add the following line to your `/etc/fstab`:
+     ```
+     192.168.3.205:/mnt/data/dih  /data/dih  nfs  defaults  0  0
+     ```
+   - This line mounts the NFS share located at `192.168.3.205:/mnt/data/dih` to the local directory `/data/dih`. The NFS server is hosted on the DIH TrueNAS cloud server located in the COMMS room rack.
+   - To mount the NFS share immediately without rebooting, run:
+     ```bash
+     sudo mount -a
+     ```
 
-2. **Reload Systemd:**
+2. **Create the Service File:**
+   - Save the service configuration content in a file named `mqtt_to_dataset.service` inside the `/etc/systemd/system/` directory.
+
+3. **Reload Systemd:**
    - After creating or modifying the service file, reload the systemd configuration to recognize the new service:
      ```bash
      sudo systemctl daemon-reload
      ```
 
-3. **Enable the Service:**
+4. **Enable the Service:**
    - Enable the service to start automatically on boot:
      ```bash
      sudo systemctl enable mqtt_to_dataset.service
      ```
 
-4. **Start the Service:**
+5. **Start the Service:**
    - Start the service manually for the first time:
      ```bash
      sudo systemctl start mqtt_to_dataset.service
      ```
 
-5. **Check Service Status:**
+6. **Check Service Status:**
    - You can check the status of the service to ensure it is running correctly:
      ```bash
      sudo systemctl status mqtt_to_dataset.service
      ```
 
-6. **Stop and Restart the Service:**
+7. **Stop and Restart the Service:**
    - To stop the service, use:
      ```bash
      sudo systemctl stop mqtt_to_dataset.service
@@ -104,4 +117,4 @@ Overall, the `mqtt_to_dataset` service provides a scalable, automated solution f
 - **Dependencies:** Verify that the network and NFS services are running properly before the `mqtt_to_dataset` service starts to avoid initialization errors.
 - **Environment Path:** Adjust the `PATH` environment variable if the Python interpreter or other required executables are located in non-standard directories.
 
-This setup will ensure that your `mqtt_to_dataset` service runs reliably, captures necessary data, and restarts automatically if any issues occur. Let me know if you need any further adjustments!
+This setup ensures that the `mqtt_to_dataset` service operates smoothly, leveraging the DIH's NFS file storage for data persistence, and is managed effectively via systemd.
