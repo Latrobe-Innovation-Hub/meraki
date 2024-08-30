@@ -1,0 +1,17 @@
+[Unit]
+Description=MQTT to Dataset Service
+After=network.target nfs-client.target
+Requires=network.target nfs-client.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/andy/meraki/mqtt_to_dataset.py
+WorkingDirectory=/home/andy/meraki
+Restart=always
+RestartSec=10
+User=andy
+Environment="PYTHONUNBUFFERED=1"
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"  # Adjust if needed
+
+[Install]
+WantedBy=multi-user.target
